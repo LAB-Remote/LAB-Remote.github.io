@@ -1,1 +1,4 @@
-theme: jekyll-theme-leap-day
+name: "lab remote"
+permalink: pretty
+baseurl: /
+highlighter: pygments
