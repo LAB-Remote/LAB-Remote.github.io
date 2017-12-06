@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>交互注释 - 雅典学院</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="qystyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="page-header">
+            <h1>The School of Athens 雅典学院&nbsp&nbsp&nbsp&nbsp<small><i>Raphael 拉斐尔</i></small></h1>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading" id="names-header">
+                        <h3 class="panel-title">Figures in Painting</h3>
+                    </div>
+                    <div class="list-group" style="overflow-y: scroll;" id="names-list">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-8">
+                <a href="#" class="thumbnail" id="pic">
+                    <img src="./Raphael_School_of_Athens.jpg" alt="The School of Athens">
+                </a>
+            </div>
+            <div class="col-xs-1"></div>
+        </div>
+        <br><br>
+    </div>
+
+    <script type="text/javascript">
+        //make left list height equals picture height all the time
+        $(window).resize(function() {
+            $("#names-list").css({"height" : $("#pic").height() - $("#names-header").height()});
+        });
+        $(document).ready(function() {
+            $("#names-list").css({"height" : $("#pic").height() - $("#names-header").height()});
+            for (var i in jsonfile.content) {
+                //generate elements for left list
+                $("#names-list").append('<button type="button" class="list-group-item" id="listnum'+jsonfile.content[i].id+'"><span class="num-circle">'+jsonfile.content[i].id+'</span>'+jsonfile.content[i].name+'</button>');
+                //generate dots on picture
+                $("#pic").append('<div class="num-popup" id="wrap'+jsonfile.content[i].id+'"><span class="on-picture" id="num'+jsonfile.content[i].id+'">'+jsonfile.content[i].id+'</span><span class="num-popuptext">'+jsonfile.content[i].info+'</span></div>');
+            }
+        });
+        //add handler for list items, when click show popup text
+        $(document).on('click', '.list-group-item', function(){
+            var el = $(this).attr('id').replace('listnum','');
+            var hi = $('#num'+el).hasClass('blingbling');
+            if (!hi) {
+                $('#num'+el).addClass('blingbling');
+            } else {
+                $('#num'+el).removeClass('blingbling');
+            }
+            var ha = $('#listnum'+el+' .num-circle').hasClass('blingbling');
+            if (!ha) {
+                $('#listnum'+el+' .num-circle').addClass('blingbling');
+            } else {
+                $('#listnum'+el+' .num-circle').removeClass('blingbling');
+            }
+            var vi = $('#wrap'+el+' .num-popuptext').hasClass('kirakira');
+            if (!vi) {
+                $('#wrap'+el+' .num-popuptext').addClass('kirakira');
+            } else {
+                $('#wrap'+el+' .num-popuptext').removeClass('kirakira');
+            }
+        });
+        //add handler for dots, when hover show popup text
+        $(document).on('click', '.on-picture', function(){
+            var el = $(this).attr('id').replace('num','');
+            var hi = $(this).hasClass('blingbling');
+            if (!hi) {
+                $(this).addClass('blingbling');
+            } else {
+                $(this).removeClass('blingbling');
+            }
+            var ha = $('#listnum'+el+' .num-circle').hasClass('blingbling');
+            if (!ha) {
+                $('#listnum'+el+' .num-circle').addClass('blingbling');
+            } else {
+                $('#listnum'+el+' .num-circle').removeClass('blingbling');
+            }
+            var vi = $('#wrap'+el+' .num-popuptext').hasClass('kirakira');
+            if (!vi) {
+                $('#wrap'+el+' .num-popuptext').addClass('kirakira');
+            } else {
+                $('#wrap'+el+' .num-popuptext').removeClass('kirakira');
+            }
+        });
+        $(document).on('click', '.num-popuptext', function() {
+            var el = $(this).parent().attr('id').replace('wrap', '');
+            $(this).removeClass('kirakira');
+            $('#listnum'+el+' .num-circle').removeClass('blingbling');
+            $('#num'+el).removeClass('blingbling');
+        });
+        var jsonfile = { "content" :[
+            {"id": "1", "name": "Zeno of Citium", "info": "<u><b>Zeno of Citium</b></u> the philosopher (c. 333- c. 262 BC) close to Epicurus. Some say it is <u><b>Zeno of Elea</b></u> (c. 488 - c. 430 BC) (The Paradoxa of Zeno). However, Zeno of Citium was more influential and famous with his stoic philosophy."},
+            {"id": "2", "name": "Epicurus", "info": "<u><b>Epicurus</b></u> (c. 342-271 BC) founded the Garden, a combination of philosophical community and school. The residents of the Garden put Epicurus' teachings into practice. \"this man wears a wreath of oak leaves\", the emblem of Pope Julius, to whose name Raphael dedicated the work signifying the golden age of this pontiff, his benefactor. (Some say that he is surrounded by a young and old man representing those who seriously followed his teachings.)"},
+            {"id": "3", "name": "Federico II of Mantua", "info": "<u><b>Federigo Gonzaga</b></u>, second duke of Mantua, who was in Rome when the painting was executed, presumably identified by Vasari (16th c.)"},
+            {"id": "4", "name": "Averroes", "info": "The philosopher of Cordoba <u><b>Averroës</b></u> identified by his turban. He was an author with commentaries to Aristotle's Metaphysics and On The Soul, Commentaries to Plato's Republic and many more other books about Philosophy, Astronomy, Medicine."},
+            {"id": "5", "name": "Anicius Manlius Severinus Boethius", "info": "Who is the old man who copies the words of Pythagoras? Probably <u><b>Boethius</b></u>, a person who with his work was influential in the Medieval times, with books such as Consolatio Philosophiae (The Consolation of Philosophy) written when he was in prison before his execution. Due to his knowledge of Greek he translated various astronomical and mathematical Greek texts which were important for the advance of Science in Europe."},
+            {"id": "6", "name": "Pythagoras", "info": "<u><b>Pythagoras</b></u>, representing Arithmetic, is sitting in the foreground. The two men who are jostling to look over his shoulder recall figures in Leonardo da Vinci's unfinished Adoration of the Magi in the Uffizi. A closer look at Pythagoras text, we recognize his most important discovery of harmony theory (music) and the numbers 1, 2, 3 and 4 which added together give the sacred number 10 (X). Epogdoon is a natural number which is 1/8 larger than a given number for example 18 is the Epogdoon of 16."},
+            {"id": "7", "name": "Hypatia or Francesco Maria della Rovere I", "info": "Some consider it as <u><b>Hypatia</b></u>, the most famous student of the School of Athens. Other say that the person is <u><b>Francesco Maria della Rovere I</b></u>, the duke of Urbino, the pope's nephew, around thirty at that time. Raphael produced also another portrait that is assumed to represent Rovere which has some similarities as the figure in the “School of Athens” and a female look."},
+            {"id": "8", "name": "Parmenides or Nicomachus", "info": "Probably <u><b>Parmenides</b></u> (c. 510-after 450 as late as 415 BC) or the mathematician and musician <u><b>Nicomachus</b></u> of Gerasa (c. 60- c. 120 AD). Nicomachus was the author of Arithmetic Introduction."},
+            {"id": "9", "name": "Heraclitus", "info": "<u><b>Heraclitus</b></u>, looking like Michelangelo. Heraclitus is also called the dark melancholic philosopher, maybe this is the reason why he is shown thinking and serious. He is alone because he usually did not like others and in the \"School of Athens\" he and Diogenes are clear isolated figures."},
+            {"id": "10", "name": "Diogenes of Sinope", "info": "<u><b>Diogenes</b></u> (412-323 BC), a cynic philosopher, a student of Antisthenes. Once when Alexander the Great went to meet him, he found him sitting in front of his barrel, facing the sun. As a great admirer of Diogenes, Alexander then asked him if there is anything he could give him. Diogenes thought for a while, and then asked politely if the Great King could simply... step aside, because by standing over him with his horse, he was hiding the sun from his face!"},
+            {"id": "11", "name": "Euclid or Archimedes", "info": "Geometry is represented by <u><b>Euclid</b></u> bending down to draw on a slate tablet with a pair of dividers(looking like the architect Bramante of Urbino (the architect of St. Peter's) according to some experts), who is explaining to his pupils a geometric diagram he has drawn on a slate. Other say that <u><b>Archimedes</b></u> is shown in a pose like when he was killed by a Roman soldier."},
+            {"id": "12", "name": "Strabo or Zoroaster", "info": "<u><b>Zoroaster</b></u> but more probably <u><b>Strabo</b></u>, a Greek geographer. Strabo is holding a celestial globe, almost spinning at the tip of his right hand's fingers. To Renaissance humanists, Strabo was considered as a philosopher who insisted to consider the Earth linked with the celestial universe. Translation of his Geography in Latin was commissioned by Pope Nicholas V in the 1450s. Strabo was often linked with Ptolemy, as a pair, by Renaissance humanists."},
+            {"id": "13", "name": "Claudius Ptolemy", "info": "Back view of <u><b>Ptolemy</b></u> holding earth sphere, facing Strabo (or Zoroaster, represented as an astrologer), holding a celestial sphere. An explanation is that Raphael used the motif of the crown found on coins from the dynasty of Macedonian kings of the same name who ruled Egypt from 323 to 30 BC"},
+            {"id": "14", "name": "Sodoma", "info": "Giovanni Antonio Bazzi, a.k.a. <u><b>Sodoma</b></u>, a Piedmontese and Florentine painter. He must be regarded as an extraordinary genius, because at times he reached the very highest of his ideals, and then at times completely failed. He must also be regarded as a man against whom many writers have thrown mud, and who now can be safely considered as a far greater man than his contemporaries regarded him, and not so evil in disposition as many were prepared to believe him to be."},
+            {"id": "15", "name": "Plotinus", "info": "<u><b>Plotinus</b></u>, the founder of Neo-Platonism. He influenced many modern Philosopher's even sometimes unacknowledged. He is described by Porphyry as otherworldly which maybe is the reason that he is shown isolated."},
+            {"id": "16", "name": "Aristotle", "info": "<u><b>Aristotle</b></u> of Stagira (384 - 322 BC) (according to Dante Alighieri \"The Master of those who know\") stretches his hand. He holds a copy of his Nichomachean Ethics -- and he indicates with his gesture the worldliness, the concreteness, of his contributions to philosophy."},
+            {"id": "17", "name": "Plato", "info": "<u><b>Plato</b></u> (427 - 347 BC) holds a copy of his Timaeus, and gestures upward to the aetherial realm of his eternal forms. This Plato is probably a portrait of Leonardo da Vinci."},
+            {"id": "18", "name": "Socrates", "info": " <u><b>Socrates</b></u> (469 - 399 BC) as usually looks to discuss various philosophical problems."},
+            {"id": "19", "name": "Aeschines", "info": "<u><b>Aeschines</b></u> (c.390- 322/314 BC), son of Atrometus, Orator, with Socrates"},
+            {"id": "20", "name": "Xenophon or Antisthenes", "info": "Assumed by some to be <u><b>Xenophon</b></u>. a friend of Socrates, a mercenary warrior and author of books such as the Anabasis and Memorabilia. Another person it could represent is <u><b>Antisthenes</b></u> (444 – after 371 BC) the cynic philoshopher."},
+            {"id": "21", "name": "Alcibiades or Alexander the Great", "info": "<u><b>Alcibiades</b></u> or <u><b>Alexander the Great</b></u>"},
+            {"id": "22", "name": "Apollo", "info": "This is the sculpture of the god <u><b>Apollo</b></u>, god of light, archery and music, holding a lyre."},
+            {"id": "23", "name": "Athena", "info": "The sculpture is <u><b>Athena</b></u>, goddess of wisdom, in her classical Roman guise as Minerva."},
+            {"id": "24", "name": "Raphael as Apelles", "info": "The Greek painter <u><b>Apelles</b></u>, shown as a self-portrait by <u><b>Raphael</b></u> who had been nicknamed by Vasari the new Apelles. Raphael is directly gazing at us, as if he was questioning what we thought about his painting. Apelles was probably the most important Greek painter born about 370 BC in Colophon. He studied at Ephesus and spent 12 years at Sikyon. He worked for Alexander the Great and his father Philip."},
+        ]};
+    </script>
+</body>
+</html>

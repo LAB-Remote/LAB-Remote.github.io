@@ -21,3 +21,5 @@ main-nav { text-align: justify; }
 #avatar { width: 8em; height: 8em; }
 
 footer { border-top: 1px solid #d5d5d5; font-size: .8em; }
+
+.internal p, ul { font-size: 1em; color: #333; }
