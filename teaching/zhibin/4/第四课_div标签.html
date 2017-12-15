@@ -1,54 +1,54 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>&lt;div&gt; 教程</title>
-    <style>
-     /* 外边距的简写（对内边距、边框等有四个方向的元素都适用）*/
-     body {
+<head>
+  <meta charset="UTF-8">
+  <title>&lt;div&gt; 教程</title>
+  <style>
+  /* 外边距的简写（对内边距、边框等有四个方向的元素都适用）*/
+  body {
       /* 下面这个是 0 15% 0 15% 的「二次」缩写。
        * 如果前两个跟后两个一样，可以把后两个省略掉。
        * 你应该还记得，四个并排写的话，顺序是从顶部开始的顺时针，也就是上右下左。
        * 这里我们规定了上面和右边的值。下面和左边是一样的。*/
       /* 至于百分比嘛，分母一般是上一级元素的对应值。<body> 的上一级元素可以直接
-	 看成是整个浏览器窗口。你调一调浏览器的宽度就明白了。*/
-	 margin: 0 15%;
-     }
-     code {
-	 font-size: 1.25em;
-     }
-    </style>
-    <style>
-     /* 在这里尽情实验！ */
-     #stupid-border-h4,
-     #stupid-border-p {
-	 border: 1px solid black;
-     }
-    </style>
-  </head>
-  <body>
-    <h1>简短的 <code>&lt;div&gt;</code> 教程</h1>
+      看成是整个浏览器窗口。你调一调浏览器的宽度就明白了。*/
+      margin: 0 15%;
+    }
+    code {
+      font-size: 1.25em;
+    }
+  </style>
+  <style>
+  /* 在这里尽情实验！ */
+  #stupid-border-h4,
+  #stupid-border-p {
+    border: 1px solid black;
+  }
+</style>
+</head>
+<body>
+  <h1>简短的 <code>&lt;div&gt;</code> 教程</h1>
 
-    <h3>不要怕把手弄脏。请努力把这个文件改得面目全非、六亲不认。</h3>
-    
-    <h3>复习</h3>
-    <p>我们已经学过「框模型」了。稍微复习一下，在脑子里过一遍「框」、「内边距」、「边框」、「外边距」分别都是什么东西，有什么对应的设置，看起来是什么样的。然后回忆一下 <code>display</code> 以及 <code>box-sizing</code> 属性的用法。再看看 HTML 源文件 顶端的 CSS，我在里面演示了个很方便的简便写法。如果你还想练习一下，可以给这一段加个 ID，然后随便设置点什么。</p>
+  <p>这节课和上一节课一样，需要大家在这个页面进行改动来体会<code>&lt;div&gt;</code>的用法。</p>
 
-    <h3><code>&lt;div&gt;</code> 标签</h3>
-    <p>我觉得你已经非常熟练加边框、加边距那一套东西了。不过你仔细一想就会发现，局限性还是很大。你只能操作<em>一个</em>特定的元素。你可以给一个标题加上边框，你可以给一个段落加上边框，你却不能给<em>一篇文章</em>加上边框。譬如说下面这一篇。你不能搞一个大边框，然后把一整篇文章套住。</p>
-    <h4 id="stupid-border-h4">文章一篇</h4>
-    <p id="stupid-border-p">Nulla malesuada pellentesque elit eget gravida cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel risus! Consectetur purus ut faucibus pulvinar elementum integer enim neque, volutpat ac tincidunt vitae, semper quis lectus nulla at volutpat diam ut venenatis tellus?</p>
-    <p>且慢。你要信仰 HTML 和 CSS 是万能的。如果有什么东西你觉得做不了，那么你一定大错特错，你只是还没学到那里而已。真相是否如此姑且不论，你要有这么个信仰才能写出好的网站。</p>
-    <p>至少给文章加边框还是能做到的。</p>
-    <p>如果你想把一个「只能应用于一个元素」的操作应用在多个元素上面，那么很简单嘛，只要把那「多个元素」变成一个元素就可以了。HTML 有提供一个用得非常广泛的标签，叫 <code>&lt;div&gt;</code>，专门用来干这个。div 是 division 的意思（我猜的），它的本质是把多个元素从结构上整合起来，或者说把多个部件抽象成一个整体，相当于人工造了一个新的「框」。用法也很简单，把它套在部件外面就可以了。</p>
-    <p><b>练习：</b>把之前那篇文章套上一个 <code>&lt;div&gt;</code>。用 CSS 给整篇文章加上一个边框。</p>
-    <p>其实你可以用一个 <code>&lt;p&gt;</code> 标签把上面那篇文章括起来，然后给那个 <code>&lt;p&gt;</code> 标签加边框。但是不要那样子弄，不仅仅因为会导致 HTML 的语义不明确，还可能导致各种其他问题，比如你本来只打算用在段落上的 CSS 作用于被包起来的标题上了。</p>
-    <hr>
-    <p><b>练习：</b><code>&lt;div&gt;</code> 的强大绝不止如此。既然他能够创造一个新的「框」，那么做个练习，把下面两篇文章并排起来，做个分栏效果。</p>
-    <h4 id="left-article-h4">左边的文章</h4>
-    <p id="left-article-p">Erat velit, scelerisque in dictum. Iaculis eu non diam phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim tortor, at auctor urna nunc. Consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut. Sit amet, porttitor eget dolor morbi. Ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci! Nisl, condimentum id venenatis a, condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus?</p>
-    <h4 id="right-article-h4">右边的文章</h4>
-    <p id="right-article-p">Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus, viverra. Nulla malesuada pellentesque elit eget gravida cum sociis natoque penatibus et magnis dis! At elementum eu, facilisis sed odio morbi quis commodo odio aenean sed. A molestie lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent.</p>
-    <p>提示：<code>box-sizing</code>。</p>
-  </body>
+  <h3>复习</h3>
+  <p>我们已经学过「框模型」了。稍微复习一下，在脑子里过一遍「框」、「内边距」、「边框」、「外边距」分别都是什么东西，有什么对应的设置，看起来是什么样的。然后回忆一下 <code>display</code> 以及 <code>box-sizing</code> 属性的用法。再看看这个HTML 源文件顶端的 CSS，我在里面演示了个很方便的简便写法。如果你还想练习一下，可以给这一段加个 ID，然后随便设置点什么，再看看变化。</p>
+
+  <h3><code>&lt;div&gt;</code> 标签</h3>
+  <p>我觉得你已经非常熟练加边框、加边距那一套东西了。不过你仔细一想就会发现，局限性还是很大。你只能操作<em>一个</em>特定的元素。你可以给一个标题加上边框，你可以给一个段落加上边框，你却不能给<em>一篇文章</em>加上边框。譬如说下面这一篇。你能不能搞一个大边框，然后把一整篇文章套住？</p>
+  <h4 id="stupid-border-h4">文章一篇</h4>
+  <p id="stupid-border-p">Nulla malesuada pellentesque elit eget gravida cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel risus! Consectetur purus ut faucibus pulvinar elementum integer enim neque, volutpat ac tincidunt vitae, semper quis lectus nulla at volutpat diam ut venenatis tellus?</p>
+  <p>大家能想到的功能，HTML和CSS的设计者肯定已经有所考虑。我们需要用的就是今天会讲解的<code>&lt;div&gt;</code>有关。div是division的缩写，中文含义是“分区”。</p>
+  <br><br><br><br><hr><br><br><br><br>
+  <p>如果你想把一个「只能应用于一个元素」的操作应用在多个元素上面，那么很简单嘛，只要把那「多个元素」变成一个元素就可以了。HTML 有提供一个用得非常广泛的标签，叫 <code>&lt;div&gt;</code>，专门用来做这个。它的本质是把多个元素从结构上整合起来，或者说把多个部件抽象成一个整体，相当于人工造了一个新的「框」。用法也很简单，把它套在部件外面就可以了。</p>
+  <p><b>练习：</b>把之前那篇文章套上一个 <code>&lt;div&gt;</code>。用 CSS 给整篇文章加上一个边框。</p>
+  <p>其实你可以用一个 <code>&lt;p&gt;</code> 标签把上面那篇文章括起来，然后给那个 <code>&lt;p&gt;</code> 标签加边框。但是不要那样子弄，不仅仅因为会导致 HTML 的语义不明确，还可能导致各种其他问题，比如你本来只打算用在段落上的 CSS 作用于被包起来的标题上了。</p>
+  <hr>
+  <p><b>练习：</b><code>&lt;div&gt;</code> 的强大绝不止如此。既然他能够创造一个新的「框」，那么做个练习，把下面两篇文章并排起来，做个分栏效果。</p>
+  <h4 id="left-article-h4">左边的文章</h4>
+  <p id="left-article-p">Erat velit, scelerisque in dictum. Iaculis eu non diam phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim tortor, at auctor urna nunc. Consequat id porta nibh venenatis cras sed felis eget velit aliquet sagittis id consectetur purus ut. Sit amet, porttitor eget dolor morbi. Ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci! Nisl, condimentum id venenatis a, condimentum vitae sapien pellentesque habitant morbi tristique senectus et netus?</p>
+  <h4 id="right-article-h4">右边的文章</h4>
+  <p id="right-article-p">Odio facilisis mauris sit amet massa vitae tortor condimentum lacinia quis vel eros donec ac odio tempor orci dapibus ultrices in iaculis nunc sed augue lacus, viverra. Nulla malesuada pellentesque elit eget gravida cum sociis natoque penatibus et magnis dis! At elementum eu, facilisis sed odio morbi quis commodo odio aenean sed. A molestie lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non enim praesent.</p>
+  <p>提示：<code>box-sizing</code>。</p>
+</body>
 </html>
