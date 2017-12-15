@@ -2,74 +2,86 @@
 <!-- 请同时在浏览器里面打开这个 HTML 文件 -->
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Box Model 框模型</title>
     <style>
-     code {
-	 font-size: 16px;
-     }
-    </style>
-    <!-- 请在下面这个 <style> 标签里面尽情实验！ -->
+    code {
+      font-size: 16px;
+  }
+</style>
+<!-- 请在下面这个 <style> 标签里面尽情实验！ -->
     <style>
-     p#border-only {
-	 width: 800px;
-	 border: 3px solid black;
-     }
-     p#padding-and-border {
-	 width: 800px;
-	 padding: 15px; /* 内边距 */
-	 border: 3px solid black;
-     }
-     
-     /* 这里留给 padding-explained */
+    p#border-only-1 {
+      width: 800px;
+      border: 3px solid black;
+  }
+  p#padding-and-border-2 {
+      width: 800px;
+      padding: 15px; /* 内边距 */
+      border: 3px solid black;
+  }
+
+  /* 这里留给 padding-explained-3 */
+     /* 
+     p#padding-explained-3 {
+
+     } 
+     */
 
      /* 其实一个选择器可以作用于多个对象。比如说这里，#padding-and-border 和
 	#padding-and-border-again 的 styling 完全是一样的，那么可以写成： 
 	
-	p#padding-and-border, p#padding-and-border-again {
+	p#padding-and-border-2, p#padding-and-border-again-4 {
 	...code code code...
 	}
-	 */
-     p#padding-and-border-again {
-	 width: 800px;
-	 padding: 15px;
-	 border: 3px solid black;
-     }
-     p#padding-border-and-margin {
-	 width: 800px;
-	 padding: 15px;
-	 border: 3px solid black;
-	 margin: 40px; /* 外边距 */
-     }
+  */
+  p#padding-and-border-again-4 {
+      width: 800px;
+      padding: 15px;
+      border: 3px solid black;
+  }
+  p#padding-border-and-margin-5 {
+      width: 800px;
+      padding: 15px;
+      border: 3px solid black;
+      margin: 40px; /* 外边距 */
+  }
+
+  /* 这里留给 margin-explained-3 */
+     /* 
+     p#margin-explained-6 {
+
+     } 
+     */
      p#p1, p#p2 {
-	 width: 40vw;
-	 border: 1px solid black;
-	 padding: 16px;
-	 box-sizing: border-box;
-     }
-    </style>
-  </head>
-  <body>
-    
+      width: 40vw;
+      border: 1px solid black;
+      padding: 16px;
+      box-sizing: border-box;
+  }
+</style>
+</head>
+<body>
+
     <p>大家好！这篇教程是关于框模型的。在开始之前先熟悉下很快会用到的术语：元素内容、内边距、边框、外边距。下面会给大家一个简单的印象。开始之前，务必在编辑器内打开 HTML 的源文件。</p>
     <p>如果你正在看源代码，也就是 HTML 文件的内容，你会看到这段话是包含在 p 标签里面。顺便说一句，如果想在网页上显示尖括号的话，在源代码里面直接打一个尖括号是不行的，这样浏览器在解析 HTML 文件的时候，会以为你开了个新的标签。所以要用 &lt; 和 &gt; 来代替。对比一下HTML文件的内容和浏览器打开的效果。再顺便说一句，用 <code>&lt;code&gt;</code> 标签可以让文字变成等宽字体。这个网页里多处用到了这个标签</p>
     <hr>
     <h3>内边距</h3>
-    <p id="border-only">本段落的 ID 是 <code>#border-only</code>。你发现这个段落有一个非常黑的边框，边框跟字挨得非常紧。</p>
-    <p id="padding-and-border">本段落的 ID 是 <code>#padding-and-border</code>。跟上一段一样也有个黑边框，不过离文字远了一些，看起来舒服一点。也就是说——在「元素内容」和「边框」之间，有一定量的「内边距」。请看源码顶部的 <code>&lt;style&gt;</code> 标签里面，<code>p#padding-and-border</code> 选择器里头，比 <code>p#border-only</code> 多了个 <code>padding</code> 属性。<code>padding</code> 就是「内边距」的英文。</p>
-    <p id="padding-explained">本段落的 ID 是 <code>#padding-explained</code>。内边距的作用很单纯，就是在边框跟内容之间创造一点空间。所以内边距永远是透明的。除了宽度，基本没办法定制。所以最常见的就是 <code>p { padding: 5px; }</code> 这样的。不过，每个方向的内边距宽度可以不一样。试试 <code>padding-left</code> 之类的属性。其他三个方向的英文是 <code>right, top, bottom</code>。一般来说，单位是 px，也就是像素。其他的长度单位也可以。</p>
+    <p id="border-only-1">本段落的 ID 是 <code>#border-only</code>。你发现这个段落有一个非常黑的边框，边框跟字挨得非常紧。</p>
+    <p id="padding-and-border-2">本段落的 ID 是 <code>#padding-and-border</code>。跟上一段一样也有个黑边框，不过离文字远了一些，看起来舒服一点。也就是说——在「元素内容」和「边框」之间，有一定量的「内边距」。请看源码顶部的 <code>&lt;style&gt;</code> 标签里面，<code>p#padding-and-border-2</code> 选择器里头，比 <code>p#border-only-1</code> 多了个 <code>padding</code> 属性。<code>padding</code> 就是「内边距」的英文。</p>
+    <p id="padding-explained-3">本段落的 ID 是 <code>#padding-explained-3</code>。内边距的作用很单纯，就是在边框跟内容之间创造一点空间。所以内边距永远是透明的。除了宽度，基本没办法定制。所以最常见的就是 <code>p { padding: 5px; }</code> 这样的。不过，每个方向的内边距宽度可以不一样。试试 <code>padding-left</code> 之类的属性。其他三个方向的英文是 <code>right, top, bottom</code>。一般来说，单位是 px，也就是像素。其他的长度单位也可以。</p>
     <p><b>练习：</b>给上一段随便加个边框，然后设定下内边距。</p>
     <p><b>练习：</b>给四个方向设定不同的内边距。</p>
 
     <hr><!-- 这是分割线 -->
     <h3>外边距</h3>
-    <p id="padding-and-border-again">接下来我们来看「外边距」。这一段有设定内边距和边框，但是还没有设定外边距。</p>
-    <p id="padding-border-and-margin">本段落的 ID 是 <code>padding-border-and-margin</code>。这一段加了外边距。观察下 <code>&lt;style&gt;</code> 里面就知道，这一段多了一个 <code>margin</code> 属性。</p>
+    <p id="padding-and-border-again-4">接下来我们来看「外边距」。这一段有设定内边距和边框，但是还没有设定外边距。</p>
+    <p id="padding-border-and-margin-5">本段落的 ID 是 <code>padding-border-and-margin</code>。这一段加了外边距。观察下 <code>&lt;style&gt;</code> 里面就知道，这一段多了一个 <code>margin</code> 属性。</p>
     
-    <p id="margin-explained">本段落的 ID 是 <code>margin-explained</code>，马上大家要对这个ID对应的CSS进行修改。<code>margin</code> 的作用是让一个「框」和另外一个「框」保持距离。常用的也只是调节四个方向的距离。此外，有一个叫「外边距合并」的现象，对应英文 margin collapsing。这个现象常常让人头疼，一般来讲就是竖直方向的上下两个「框」之间的外边距会重叠在一起，只剩较大的那个。具体有不同的情况，如果想深入了解，请参阅<a href="https://css-tricks.com/what-you-should-know-about-collapsing-margins/" target="_blank">这里</a>。</p>
+    <p id="margin-explained-6">本段落的 ID 是 <code>margin-explained-6</code>，马上大家要对这个ID对应的CSS进行修改。<code>margin</code> 的作用是让一个「框」和另外一个「框」保持距离。常用的也只是调节四个方向的距离。此外，有一个叫「外边距合并」的现象，对应英文 margin collapsing。这个现象常常让人头疼，一般来讲就是竖直方向的上下两个「框」之间的外边距会重叠在一起，只剩较大的那个。具体有不同的情况，如果想深入了解，请参阅<a href="https://css-tricks.com/what-you-should-know-about-collapsing-margins/" target="_blank">这里</a>。</p>
     <p><b>练习：</b>给上一段随便加个边框，接着设定下内边距，最后加个外边距。</p>
-    <p><b>练习：</b>你可能已经注意到了。观察一下，你在做前一个练习的时候，有没有「外边距合并」的情况？<code>#padding-border-and-margin</code> 这一段默认有 40px 的外边距。可以试试给 <code>margin-explained</code> 设定 20px 的外边距，再改成 40px。这两个「框」之间的距离会有变化吗？再试试设定成 80px。</p>
+    <p><b>练习：</b>你可能已经注意到了。观察一下，你在做前一个练习的时候，有没有「外边距合并」的情况？<code>#padding-border-and-margin-5</code> 这一段默认有 40px 的外边距。可以试试给 <code>margin-explained-6</code> 设定 20px 的外边距，再改成 40px。这两个「框」之间的距离会有变化吗？再试试设定成 80px。</p>
 
     <hr>
     <h3>什么是「框」？</h3>
@@ -97,5 +109,5 @@
     <hr>
     <h3>本课总结题：</h3>
     <p><b>练习：</b>有没有觉得现在这个网页很丑？很大一部分原因是，太宽了。你想想，哪有书会把字印到书页的最边缘。所以，想个办法，给网页内容跟浏览器的左右两边之间加点空隙。</p>
-  </body>
+</body>
 </html>
