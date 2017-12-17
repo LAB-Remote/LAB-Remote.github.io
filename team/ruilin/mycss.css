@@ -1,0 +1,75 @@
+.bg {
+  background: url('./Images/Title.jpg') repeat center center;
+  backface-visibility: 80%;
+  position: fixed;
+  width: 100%;
+  height: 300px; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+  opacity: 0.9; 
+  filter: alpha(opacity=20);
+}
+
+.jumbotron {
+  height: 300px;
+  color: white;
+  text-shadow: #444 0 1px 1px;
+  background:transparent;
+}
+
+.lead {
+  /*text-align: center;*/
+  font-family: 'Playfair Display',serif;
+  margin: 150px 0 0 20px;
+}
+
+#map {
+  display: block;
+  width: 100%;
+  margin: auto;
+  height: 580px;
+}
+
+p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  font-family: 'Playfair Display',serif;
+  letter-spacing: 0px;
+  color: #000000;
+  text-align: justify;
+}
+
+h2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 41px;
+  line-height: 1.1;
+  font-family: 'Playfair Display',serif;
+  letter-spacing: 0px;
+  text-align: inherit;
+  color: #222832;
+}
+
+#fig1 {
+  border: 1px solid #e1e1e8;
+}
+
+#fig1-wrapper {
+  margin: 0 5%;
+}
+
+#fig2 {
+  padding: 6px;
+}
+
+.fig-wrapper {
+  width: 98%;
+  margin: auto;
+}
+
+body {
+  background-color: #f7f7f7;
+}
